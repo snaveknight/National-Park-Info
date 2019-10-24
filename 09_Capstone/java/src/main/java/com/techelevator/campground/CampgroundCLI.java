@@ -95,15 +95,16 @@ public class CampgroundCLI {
 		if(commandChoice.equals(SELECTED_PARK_VIEW_CAMPGROUNDS)) {
 			List <Campground> campgroundList = campgroundDAO.displayCampgroundFromParkSelected(parkChoice);
 			
-//			for(Campground cgl : campgroundList) {
-//				cgl.getName();
-//			}
-			String[] campgrounds = new String[campgroundList.size()];
-			for(int i = 0; i < campgroundList.size(); i++) {
-				campgrounds[i] = campgroundList.get(i).getCampGroundId().toString();
-				campgrounds[i] = campgroundList.get(i).getName();
-				
+			for(Campground cgl : campgroundList) {
+				//cgl.getName();
+				System.out.println(cgl.getName() + cgl.getOpenFromMm());
 			}
+//			String[] campgrounds = new String[campgroundList.size()];
+//			for(int i = 0; i < campgroundList.size(); i++) {
+//				campgrounds[i] = campgroundList.get(i).getCampGroundId().toString();
+//				campgrounds[i] = campgroundList.get(i).getName();
+//				System.out.println(campgroundList[i].get());
+//			}
 			//displayCampgroundFromParkSelected(choice);
 		}  else if(commandChoice.equals(SELECTED_PARK_SEARCH_RESERVATION)) {
 			System.out.println("hello world2 ");
