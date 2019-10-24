@@ -6,6 +6,6 @@ public interface ParkDAO {
 
 	public List<Park> getAllParks(); 
 	
-	public Park getSelectedParkInfo();
+	public Park getSelectedParkInfo(String choice);
 	
 }

@@ -31,9 +31,21 @@ public class JDBCParkDAO implements ParkDAO{
 	}
 
 	@Override
-	public Park getSelectedParkInfo() {
-		
-		return null;
+	public Park getSelectedParkInfo(String choice){
+		Park parkListDescription = new Park();
+		Park park = new Park();
+		String sqlGetAllParkInfo = "SELECT * FROM park WHERE name = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllParkInfo, choice);
+		while (results.next()) {
+			park.setParkId(results.getLong("park_id"));
+			park.setName(results.getString("name"));
+			park.setLocation(results.getString("location"));
+			park.setEstablishDate(results.getDate("establish_date").toLocalDate());
+			park.setArea(results.getInt("area"));
+			park.setVisitors(results.getInt("visitors"));
+			park.setDescription(results.getString("description"));
+		}
+		return park;
 	}
 
 }

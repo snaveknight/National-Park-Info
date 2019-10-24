@@ -3,23 +3,14 @@ package com.techelevator.campground.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class CampGround {
+public class Campground {
 	private Long campGroundId;
 	private int parkId;
 	private String name;
-	private LocalDate openFromMm;
-	private LocalDate openToMm;
+	private String openFromMm;
+	private String openToMm;
 	private BigDecimal dailyFee;
 	
-	public CampGround(Long campGroundId, int parkId, String name, LocalDate openFromMm, LocalDate openToMm,
-			BigDecimal dailyFee) {
-		this.campGroundId = campGroundId;
-		this.parkId = parkId;
-		this.name = name;
-		this.openFromMm = openFromMm;
-		this.openToMm = openToMm;
-		this.dailyFee = dailyFee;
-	}
 	
 	public Long getCampGroundId() {
 		return campGroundId;
@@ -39,16 +30,16 @@ public class CampGround {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public LocalDate getOpenFromMm() {
+	public String getOpenFromMm() {
 		return openFromMm;
 	}
-	public void setOpenFromMm(LocalDate openFromMm) {
+	public void setOpenFromMm(String openFromMm) {
 		this.openFromMm = openFromMm;
 	}
-	public LocalDate getOpenToMm() {
+	public String getOpenToMm() {
 		return openToMm;
 	}
-	public void setOpenToMm(LocalDate openToMm) {
+	public void setOpenToMm(String openToMm) {
 		this.openToMm = openToMm;
 	}
 	public BigDecimal getDailyFee() {
