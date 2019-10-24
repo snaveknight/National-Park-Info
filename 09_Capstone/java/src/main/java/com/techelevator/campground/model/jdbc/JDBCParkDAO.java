@@ -30,4 +30,10 @@ public class JDBCParkDAO implements ParkDAO{
 		return parkList;
 	}
 
+	@Override
+	public Park getSelectedParkInfo() {
+		
+		return null;
+	}
+
 }

@@ -51,21 +51,32 @@ public class CampgroundCLI {
 	}
 
 	public void run() {	
+		greetingMessageForMenu();
+		while(true) {
+		handleListOfParks();
+		
+		//menu.getChoiceFromUserInput();
+		}
+	}
+	
+	public void handleListOfParks() {
+		List<Park> parkList = parkDAO.getAllParks();
+		
+		int i=0;
+		String[] parkNames = new String[parkList.size() + 1];
+		for (; i< parkList.size(); i++) {
+			parkNames[i] = parkList.get(i).getName();
+		}
+		parkNames[i] = "quit";
+		String choice = (String)menu.getChoiceFromOptions(parkNames);
+		
+		
+	}
+	
+	public void greetingMessageForMenu() {
 		System.out.println("Welcome to our parks Menu!\r\n"
 				+ "Here is a list of our parks.\r\n"
 				+ "Type in the number of the park you would like more information "
 				+ "on or to check for reservation availability");
-		
-		List<Park> parkList = parkDAO.getAllParks();
-		
-		while(true) {
-			int i=0;
-			String[] parkNames = new String[parkList.size() + 1];
-			for (; i< parkList.size(); i++) {
-				parkNames[i] = parkList.get(i).getName();
-			}
-			parkNames[i] = "quit";
-			menu.getChoiceFromOptions(parkNames);
-		}
 	}
 }
