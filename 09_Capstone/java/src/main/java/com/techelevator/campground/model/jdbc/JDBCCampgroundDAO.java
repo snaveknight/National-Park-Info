@@ -18,12 +18,10 @@ public class JDBCCampgroundDAO implements CampgroundDAO {
 	public JDBCCampgroundDAO(BasicDataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-
 	@Override
 	public List<Campground> displayCampgroundFromParkSelected(String choice) {
 		List<Campground> campgroundList = new ArrayList<>();
-		System.out.println("\nPARK CAMPGROUNDS\r\n");
-		System.out.println(choice + " National Park Campgrounds");
+		
 		String sqlGetAllcampgrounds = "SELECT c.campground_id, c.name, c.open_from_mm, c.open_to_mm, c.daily_fee\r\n" + 
 				"FROM campground c\r\n" + 
 				"INNER JOIN park p\r\n" + 
@@ -41,5 +39,4 @@ public class JDBCCampgroundDAO implements CampgroundDAO {
 		}
 		return campgroundList;
 	}
-
 }
