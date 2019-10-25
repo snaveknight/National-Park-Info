@@ -58,8 +58,6 @@ public class CampgroundCLI {
 		while(true) {
 		handleListOfParks();
 		String parkChoice = (String)menu.getChoiceFromOptions(SELECTED_PARK_COMMAND_MENU);
-		//displaySelectCommandMenu(choice);
-		//menu.getChoiceFromUserInput();
 		}
 	}
 	
@@ -93,41 +91,28 @@ public class CampgroundCLI {
 		String commandChoice = (String)menu.getChoiceFromOptions(SELECTED_PARK_COMMAND_MENU);
 		
 		if(commandChoice.equals(SELECTED_PARK_VIEW_CAMPGROUNDS)) {
-			List <Campground> campgroundList = campgroundDAO.displayCampgroundFromParkSelected(parkChoice);
-			
-			for(Campground cgl : campgroundList) {
-				//cgl.getName();
-				System.out.println(cgl.getName() + cgl.getOpenFromMm());
-			}
-//			String[] campgrounds = new String[campgroundList.size()];
-//			for(int i = 0; i < campgroundList.size(); i++) {
-//				campgrounds[i] = campgroundList.get(i).getCampGroundId().toString();
-//				campgrounds[i] = campgroundList.get(i).getName();
-//				System.out.println(campgroundList[i].get());
-//			}
-			//displayCampgroundFromParkSelected(choice);
+			displayCampgroundFromParkSelected(parkChoice);
 		}  else if(commandChoice.equals(SELECTED_PARK_SEARCH_RESERVATION)) {
-			System.out.println("hello world2 ");
+			System.out.println("first time thru display 3");
 		} else if(commandChoice.equals(SELECTED_PARK_RETURN_PREV_SCREEN)) {
-			System.out.println("hello world 3");
+			System.out.println("first time thru display 3");
+			run();
 		}
-		
-		//*****
-		
+			
 		
 	}
+
+
 	
-//	public void displaySelectCommandMenu(String choice) {
-//		if(choice.equals(SELECTED_PARK_VIEW_CAMPGROUNDS)) {
-//			displayCampgroundFromParkSelected(choice);
-//		}  else if(choice.equals(SELECTED_PARK_SEARCH_RESERVATION)) {
-//			System.out.println("hello world2 ");
-//		} else if(choice.equals(SELECTED_PARK_RETURN_PREV_SCREEN)) {
-//			System.out.println("hello world 3");
-//		}
-//	}
 	
-	public void displayCampgroundFromParkSelected(String choice) {
+	public void displayCampgroundFromParkSelected(String parkChoice) {
+		List <Campground> campgroundList = campgroundDAO.displayCampgroundFromParkSelected(parkChoice);
+		
+		System.out.println("\n	Name	Open	Close	Daily Fee");
+		for(Campground cgl : campgroundList) {
+			//cgl.getName();
+			System.out.println("#" + cgl.getCampGroundId() + "	" + cgl.getName() + "		" + cgl.getOpenFromMm() + "	" + cgl.getOpenToMm() + "	$" + cgl.getDailyFee());
+		}
 	}
 		
 		
