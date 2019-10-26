@@ -99,6 +99,8 @@ public class CampgroundCLI {
 				displayCampgroundFromParkSelected(parkChoice);
 			} else if (commandChoice.equals(SELECTED_PARK_SEARCH_RESERVATION)) {
 				System.out.println("first time thru display 3");
+				reservationDAO.optionTwoFromMainMenuShowsAllReservationsForThatPark(parkChoice);
+			
 			} else if (commandChoice.equals(SELECTED_PARK_RETURN_PREV_SCREEN)) {
 				System.out.println("first time thru display 3");
 				run();
@@ -140,10 +142,11 @@ public class CampgroundCLI {
 					+ "	" + cgl.getOpenToMm() + "	$" + cgl.getDailyFee());
 		}
 	}
-
+	
 	public void greetingMessageForMenu() {
 		System.out.println("Welcome to our parks Menu!\r\n" + "Here is a list of our parks.\r\n"
 				+ "Type in the number of the park you would like more information "
 				+ "on or to check for reservation availability");
 	}
+	
 }

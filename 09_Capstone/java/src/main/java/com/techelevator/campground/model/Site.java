@@ -3,22 +3,12 @@ package com.techelevator.campground.model;
 public class Site {
 	private Long siteId;
 	private int campgroundId;
-	private int siteNumber;
+	private Integer siteNumber;
 	private int maxOccupancy;
 	private Boolean accessible;
 	private int maxRvLength;
 	private Boolean utilities;
 	
-	public Site(Long siteId, int campgroundId, int siteNumber, int maxOccupancy, Boolean accessible, int maxRvLength,
-			Boolean utilities) {
-		this.siteId = siteId;
-		this.campgroundId = campgroundId;
-		this.siteNumber = siteNumber;
-		this.maxOccupancy = maxOccupancy;
-		this.accessible = accessible;
-		this.maxRvLength = maxRvLength;
-		this.utilities = utilities;
-	}
 	public Long getSiteId() {
 		return siteId;
 	}

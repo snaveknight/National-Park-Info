@@ -28,6 +28,7 @@ public class JDBCCampgroundDAO implements CampgroundDAO {
 				"ON c.park_id = p.park_id\r\n" + 
 				"WHERE p.name = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllcampgrounds, choice);
+		
 		while (results.next()) {
 			Campground campground = new Campground();
 			campground.setCampGroundId(results.getLong("campground_id"));
@@ -36,6 +37,7 @@ public class JDBCCampgroundDAO implements CampgroundDAO {
 			campground.setOpenToMm(results.getString("open_to_mm"));
 			campground.setDailyFee(results.getBigDecimal("daily_fee"));
 			campgroundList.add(campground);
+			
 		}
 		return campgroundList;
 	}
