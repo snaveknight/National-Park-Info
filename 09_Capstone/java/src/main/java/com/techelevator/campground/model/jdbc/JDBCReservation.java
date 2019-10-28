@@ -131,26 +131,26 @@ public class JDBCReservation implements ReservatioDAO {
 			reserves.setCreateDate(results.getDate("create_date").toLocalDate());
 			parkReservations.add(reserves);
 		}
-
 		
-		System.out.println();
+		int spacingSeperation = 3;
+		int longest = "Zukerberg Family Reservation".length();
+		int spacing = longest + spacingSeperation;
+		String [] header = new String[] {"Site No.", "Max Occup.", "Accessible?", 
+				"Max RV Length", "Utility", "Cost"};
+		System.out.println(String.format(
+				"%-" + spacing + "s%-" + spacing + "s%-" + spacing + "s%-" + spacing + 
+				"s%-" + spacing + "s%-" + spacing + "s\n", header[0], header[1], header[2],
+						header[3], header[4], header[5]));
+		
 		for (Reservation parkReservList: parkReservations) {
-			String [] test = new String[] {parkReservList.getReservationId().toString(), parkReservList.getSiteId().toString(), };
-			
-			
-			
-			
-			
-			System.out.print(parkReservList.getReservationId() + "     ");  
-			System.out.print(parkReservList.getSiteId() + "     ");
-			System.out.print(parkReservList.getName() + "     ");
-			System.out.print(parkReservList.getFromDate() + "     ");
-			System.out.print(parkReservList.getToDate() + "     "); 
-			System.out.println(parkReservList.getCreateDate() + "     ");
-		}	
-		
-	}
-	
-	
+			String [] test = new String[] {parkReservList.getReservationId().toString(), parkReservList.getSiteId().toString(), 
+					parkReservList.getName(), parkReservList.getFromDate().toString(), parkReservList.getToDate().toString(),
+					parkReservList.getCreateDate().toString()};
 
+			System.out.println(String.format(
+					"%-" + spacing + "s%-" + spacing + "s%-" + spacing + "s%-" + spacing + 
+					"s%-" + spacing + "s%-" + spacing + "s\n", test[0], test[1], test[2], 
+					test[3], test[4], test[5]));
+		}	
+	}
 }
